@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: Center(
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset(
@@ -18,7 +19,7 @@ class LoginScreen extends StatelessWidget {
             Text(
               "Welcome",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -44,13 +45,20 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   ElevatedButton(
                     onPressed: () => {
                       print("login pressed"),
+                      Navigator.pushNamed(context, Routes.home)
                     },
                     child: Text("Login"),
+                    style: TextButton.styleFrom(
+                      minimumSize: Size(
+                        150,
+                        40,
+                      ),
+                    ),
                   )
                 ],
               ),

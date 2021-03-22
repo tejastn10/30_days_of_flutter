@@ -1,10 +1,12 @@
-# flutter_catalog
+# 30 Days of Flutter
 
 A new Flutter project.
 
-## Getting Started
+## About the Project
 
-This project is a starting point for a Flutter application.
+This project is for expanding my knowledge on Flutter by Following Pawan Kumars's [30 days of Flutter Playlist](https://www.youtube.com/playlist?list=PLrjrqTcKCnhTXI2GyPkaQF47inLp6LoIC)
+
+### Flutter Docs
 
 A few resources to get you started if this is your first Flutter project:
 

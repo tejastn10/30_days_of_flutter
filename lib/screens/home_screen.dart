@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/widgets/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
           child: Text("$days days of flutter"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: SideDrawer(),
     );
   }
 }

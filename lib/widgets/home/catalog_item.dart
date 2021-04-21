@@ -47,7 +47,13 @@ class CatalogItem extends StatelessWidget {
                           StadiumBorder(),
                         ),
                       ),
-                      child: "Buy".text.make(),
+                      child: Text(
+                        "Add to cart",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ).pOnly(right: 16),

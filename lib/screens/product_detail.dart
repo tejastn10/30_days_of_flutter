@@ -12,7 +12,9 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: AppTheme.cream,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -31,8 +33,8 @@ class ProductDetails extends StatelessWidget {
                   StadiumBorder(),
                 ),
               ),
-              child: "Buy".text.lg.bold.make(),
-            ).wh(100, 50),
+              child: "Add to cart".text.make(),
+            ).wh(120, 50),
           ],
         ).p32(),
       ),
@@ -45,7 +47,7 @@ class ProductDetails extends StatelessWidget {
               child: Image.network(
                 product.image,
               ),
-            ).h48(context),
+            ).h32(context),
             Expanded(
               child: VxArc(
                 height: 30.0,
@@ -64,6 +66,11 @@ class ProductDetails extends StatelessWidget {
                           .textStyle(context.captionStyle)
                           .bold
                           .make(),
+                      "Voluptua dolore stet et ipsum sit stet sit, diam aliquyam diam eos erat, at est justo sit rebum at et at, nonumy diam dolor eos kasd diam sed nonumy est diam. Nonumy sit consetetur justo dolores diam nonumy ipsum. Ipsum at et dolor sed dolore aliquyam et duo. Tempor lorem."
+                          .text
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p16(),
                     ],
                   ).py64(),
                 ),

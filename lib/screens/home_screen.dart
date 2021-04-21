@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home/catalog_list.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
@@ -52,6 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, Routes.cart),
+        backgroundColor: AppTheme.darkBlue,
+        child: Icon(CupertinoIcons.cart),
       ),
     );
   }

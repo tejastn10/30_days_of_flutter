@@ -15,19 +15,24 @@ class ProductDetails extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: AppTheme.cream,
+      backgroundColor: context.theme.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.theme.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${product.price}".text.semiBold.xl.make(),
+            "\$${product.price}"
+                .text
+                .color(context.theme.accentColor)
+                .semiBold
+                .xl
+                .make(),
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
-                  AppTheme.darkBlue,
+                  context.theme.buttonColor,
                 ),
                 shape: MaterialStateProperty.all(
                   StadiumBorder(),
@@ -55,13 +60,10 @@ class ProductDetails extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   width: context.screenWidth,
-                  color: Colors.white,
+                  color: context.theme.cardColor,
                   child: Column(
                     children: [
-                      product.name.text.xl3
-                          .color(AppTheme.darkBlue)
-                          .bold
-                          .make(),
+                      product.name.text.xl3.color(AppTheme.lightcl).bold.make(),
                       product.desc.text.lg
                           .textStyle(context.captionStyle)
                           .bold

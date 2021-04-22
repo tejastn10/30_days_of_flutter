@@ -7,7 +7,6 @@ import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home/catalog_list.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.cream,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
@@ -57,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, Routes.cart),
-        backgroundColor: AppTheme.darkBlue,
+        backgroundColor: context.theme.buttonColor,
         child: Icon(CupertinoIcons.cart),
       ),
     );

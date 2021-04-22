@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../themes.dart';
-
 class CatalogItem extends StatelessWidget {
   final Item item;
   const CatalogItem({Key key, @required this.item})
@@ -26,9 +24,9 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                item.name.text.lg.color(AppTheme.darkBlue).bold.make(),
+                item.name.text.lg.color(context.theme.accentColor).bold.make(),
                 item.desc.text
-                    .color(AppTheme.darkBlue)
+                    .color(context.theme.accentColor)
                     .textStyle(context.captionStyle)
                     .make(),
                 10.heightBox,
@@ -36,12 +34,17 @@ class CatalogItem extends StatelessWidget {
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
                   children: [
-                    "\$${item.price}".text.semiBold.lg.make(),
+                    "\$${item.price}"
+                        .text
+                        .color(context.theme.accentColor)
+                        .semiBold
+                        .lg
+                        .make(),
                     ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          AppTheme.darkBlue,
+                          context.theme.buttonColor,
                         ),
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
@@ -62,7 +65,7 @@ class CatalogItem extends StatelessWidget {
           )
         ],
       ),
-    ).white.rounded.square(150).make().py16();
+    ).color(context.theme.cardColor).rounded.square(150).make().py16();
   }
 }
 
@@ -74,6 +77,6 @@ class ItemImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.network(
       image,
-    ).box.rounded.p8.color(AppTheme.cream).make().p16().w40(context);
+    ).box.rounded.p8.color(context.theme.canvasColor).make().p16().w40(context);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class AppTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
@@ -26,12 +27,17 @@ class AppTheme {
         buttonColor: lightcl,
         accentColor: lightcl,
         appBarTheme: AppBarTheme(
-            color: Colors.white,
-            elevation: 0.0,
-            iconTheme: IconThemeData(color: Colors.white),
-            textTheme: Theme.of(context)
-                .textTheme
-                .apply(bodyColor: Colors.deepPurple)),
+          color: Colors.white,
+          elevation: 0.0,
+          iconTheme: IconThemeData(
+            color: lightcl,
+          ),
+          textTheme: Theme.of(context).textTheme.copyWith(
+                headline6: context.textTheme.headline6.copyWith(
+                  color: lightcl,
+                ),
+              ),
+        ),
       );
 
   // Colors

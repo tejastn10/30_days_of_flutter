@@ -35,7 +35,13 @@ class _CartTotal extends StatelessWidget {
                 context.theme.buttonColor,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: "Buying not supported yet.".text.make(),
+                ),
+              );
+            },
             child: "Buy".text.make(),
           ).w32(context),
         ],

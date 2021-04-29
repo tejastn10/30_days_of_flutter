@@ -65,18 +65,20 @@ class _AddToCart extends StatefulWidget {
 }
 
 class __AddToCartState extends State<_AddToCart> {
-  bool isAdded = false;
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
+    bool isInCart = _cart.items.contains(widget.item);
     return ElevatedButton(
       onPressed: () {
-        final _catalog = CatalogModel();
-        final _cart = CartModel();
-        setState(() {
-          isAdded = isAdded.toggle();
-          _cart.add(widget.item);
-          _cart.catalog = _catalog;
-        });
+        if (!isInCart) {
+          final _catalog = CatalogModel();
+          setState(() {
+            isInCart = isInCart.toggle();
+            _cart.add(widget.item);
+            _cart.catalog = _catalog;
+          });
+        }
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(
@@ -86,7 +88,7 @@ class __AddToCartState extends State<_AddToCart> {
           StadiumBorder(),
         ),
       ),
-      child: isAdded
+      child: isInCart
           ? Icon(
               Icons.done,
             )

@@ -41,7 +41,7 @@ class CatalogItem extends StatelessWidget {
                         .semiBold
                         .lg
                         .make(),
-                    _AddToCart(item: item),
+                    AddToCart(item: item),
                   ],
                 ).pOnly(right: 16),
               ],
@@ -53,31 +53,24 @@ class CatalogItem extends StatelessWidget {
   }
 }
 
-class _AddToCart extends StatefulWidget {
+class AddToCart extends StatelessWidget {
   final Item item;
-  const _AddToCart({
+  AddToCart({
     Key key,
     this.item,
   }) : super(key: key);
 
-  @override
-  __AddToCartState createState() => __AddToCartState();
-}
-
-class __AddToCartState extends State<_AddToCart> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    bool isInCart = _cart.items.contains(widget.item);
+    bool isInCart = _cart.items.contains(item);
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {
           final _catalog = CatalogModel();
-          setState(() {
-            isInCart = isInCart.toggle();
-            _cart.add(widget.item);
-            _cart.catalog = _catalog;
-          });
+          isInCart = isInCart.toggle();
+          _cart.add(item);
+          _cart.catalog = _catalog;
         }
       },
       style: ButtonStyle(

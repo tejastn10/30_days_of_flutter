@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/models/cart.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/widgets/home/add_to_cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogItem extends StatelessWidget {
@@ -50,49 +50,6 @@ class CatalogItem extends StatelessWidget {
         ],
       ),
     ).color(context.theme.cardColor).rounded.square(150).make().py16();
-  }
-}
-
-class AddToCart extends StatelessWidget {
-  final Item item;
-  AddToCart({
-    Key key,
-    this.item,
-  }) : super(key: key);
-
-  final _cart = CartModel();
-  @override
-  Widget build(BuildContext context) {
-    bool isInCart = _cart.items.contains(item);
-    return ElevatedButton(
-      onPressed: () {
-        if (!isInCart) {
-          final _catalog = CatalogModel();
-          isInCart = isInCart.toggle();
-          _cart.add(item);
-          _cart.catalog = _catalog;
-        }
-      },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          context.theme.buttonColor,
-        ),
-        shape: MaterialStateProperty.all(
-          StadiumBorder(),
-        ),
-      ),
-      child: isInCart
-          ? Icon(
-              Icons.done,
-            )
-          : Text(
-              "Add to cart",
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-    );
   }
 }
 
